@@ -6,21 +6,28 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
-* {
+*,
+*::after
+*::before {
     margin:0;
     padding:0;
-    box-sizing: border-box;
+    box-sizing: inherit;
+    
 }
 html{
-    font-size: 10px;
+    /* browser default is 16px */
+    /* 16px*62.5% -> 10px */
+    /* for the user to zoom in out will dynamically adjust */
+    font-size: 62.5%;
 }
 body {
     font-family: 'Lato',sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1.6rem;
     line-height: 1.7;
     color:#777;
     padding: 3rem;
+    box-sizing: border-box;
 
 }
 .header{
@@ -34,17 +41,17 @@ body {
     clip-path: polygon(0 0,100% 0,100% 75vh,0 100%);
     position:relative;
 }
-.logo-box{
+.header__logo-box{
     position: absolute;
     top: 4rem;
     left: 4rem;
 
 }
-.logo{
+.header__logo{
     height:3.5rem;
 
 }
-.text-box{
+.header__text-box{
     position:absolute;
     top: 40%;
     left: 50%;
@@ -57,7 +64,7 @@ body {
     text-transform: uppercase;
     margin-bottom: 6rem;
 }
-.heading-primary-main{
+.heading-primary--main{
     display: block;
     font-size:6rem;
     font-weight: 400;
@@ -66,7 +73,7 @@ body {
     animation-duration:1s;
     animation-timing-function: ease-out;
 }
-.heading-primary-sub{
+.heading-primary--sub{
     display:block;
     font-size: 2rem;
     font-weight: 700;
@@ -111,13 +118,13 @@ body {
 }
 .btn:hover{
     transform:translateY(-.3rem);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .2)
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2)
 }
 .btn:active{
     transform: translateY(-.1rem);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2)
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2)
 }
-.btn-white{
+.btn--white{
     background-color: #fff;
     color:#777
 }
@@ -134,14 +141,14 @@ body {
     z-index:-1;
     transition: all, .4s;
 }
-.btn-white::after{
+.btn--white::after{
     background-color: #fff;
 }
 .btn:hover::after{
     transform: scale(1.5);
     opacity: 0;
 }
-.btn-animated{
+.btn--animated{
     animation:moveInBottom .5s ease-out .75s;
     animation-fill-mode:backwards;
 }
